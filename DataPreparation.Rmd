@@ -1,11 +1,13 @@
 ---
 title: "Data Preparation"
-output:
-  pdf_document: default
-  html_notebook: default
-  html_document:
-    df_print: paged
+author: "Derek Castleman"
+date: "9/1/2021"
+output: github_document
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 In this notebook I will take the various excel files that were collected at the civil rights website. I will use Tidyverse to fix the data tables changing rows into columns and renaming columns. After this I will join them with the data from the census bureau on poverty. I will use the proportion of students in the district to create proportions for the different characteristics of the school districts. I will use inner joins on some of the datatables since I want the districts that have these features represented and left join on others (like sports) which have some districts that do not have any of these and I do not want to lose them.
 
@@ -617,6 +619,3 @@ final_table
 Writing the datatable as a csv file now that it is complete.
 ```{r}
 write.csv(x=final_table, file="ProjectDataTableNewData.csv")
-```
-
-
