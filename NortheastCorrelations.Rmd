@@ -1,0 +1,329 @@
+---
+title: "Northeastern States Correlations"
+output:
+  html_document:
+    df_print: paged
+---
+In this markdown I will look at each of the features and run correlations on them to see how they relate with poverty proportion. I will also graph out each one of them to get a visual on the relationship.
+
+
+
+I am going to first load in the project data that was prepared and then take a look at it.
+
+```{r}
+library(tidyverse)
+project_data <- read_csv("northeast_data.csv")
+project_data
+```
+
+Look at a plot of poverty compared to new teacher.
+
+```{r}
+project_data %>%
+  ggplot(aes(New_Teachers_Proportion, Poverty_Proportion)) + 
+  geom_point()
+```
+I am going to look at the correlation for new teachers.
+
+```{r}
+cor.test(project_data$New_Teachers_Proportion, project_data$Poverty_Proportion)
+```
+I am going to graph out absent teacher ratio to see the relationship.
+
+```{r}
+project_data %>%
+  ggplot(aes(Absent_Teacher_Proportion, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation between for absent teachers.
+
+```{r}
+cor.test(project_data$Absent_Teacher_Proportion, project_data$Poverty_Proportion)
+```
+Looking at the graph of counselor ratio.
+
+```{r}
+project_data %>%
+  ggplot(aes(Counselor_Ratio, Poverty_Proportion)) + 
+  geom_point()
+```
+Look at the correlation for counselor ratio.
+
+```{r}
+cor.test(project_data$Counselor_Ratio, project_data$Poverty_Proportion)
+```
+Looking at the graph with the student_teacher_ratio.
+
+```{r}
+project_data %>%
+  ggplot(aes(Student_Teacher_Ratio, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation with student teacher ratio.
+
+```{r}
+cor.test(project_data$Student_Teacher_Ratio, project_data$Poverty_Proportion)
+```
+Looking at how chronic abseentism graphs with poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Absent_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation for absent and poverty.
+
+```{r}
+cor.test(project_data$Absent_Prop, project_data$Poverty_Proportion)
+```
+Looking at the graph of students that have taken the SAT or ACT compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Test_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Look at the correlation of test takers.
+
+```{r}
+cor.test(project_data$Test_Prop, project_data$Poverty_Proportion)
+```
+Looking at how sports team relates to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Teams_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation of teams to poverty.
+
+```{r}
+cor.test(project_data$Teams_Prop, project_data$Poverty_Proportion)
+```
+Looking at athletes compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Athletes_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation of athletes.
+
+```{r}
+cor.test(project_data$Athletes_Prop, project_data$Poverty_Proportion)
+```
+Looking at how ap test takers compare to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Takers_Proportion, Poverty_Proportion)) + 
+  geom_point()
+```
+Looking at the correlation for the Ap test takers.
+
+```{r}
+cor.test(project_data$Takers_Proportion, project_data$Poverty_Proportion)
+```
+Looking at AP students compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(AP_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Correlation of AP students to poverty.
+
+```{r}
+cor.test(project_data$AP_Prop, project_data$Poverty_Proportion)
+```
+Suspension days compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(AVG_Suspenion, Poverty_Proportion)) + 
+  geom_point()
+```
+I want to look at the correlation of suspension with poverty.
+
+```{r}
+cor.test(project_data$AVG_Suspenion, project_data$Poverty_Proportion)
+```
+I want to look at expulsions compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Expulsion_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Look at correlation of expulsion to poverty.
+
+```{r}
+cor.test(project_data$Expulsion_Prop, project_data$Poverty_Proportion)
+```
+Police involvement compared to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Police_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Correlation of police involvement to poverty.
+
+```{r}
+cor.test(project_data$Police_Prop, project_data$Poverty_Proportion)
+```
+Student proportion compared to population and poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Student_Prop, Poverty_Proportion)) + 
+  geom_point()
+```
+Look at the correlation of the student proportion.
+
+```{r}
+cor.test(project_data$Student_Prop, project_data$Poverty_Proportion)
+```
+For the next part I will look at correlations as they relate to bullying on race and gender.
+
+```{r}
+project_data %>%
+  ggplot(aes(Race_Disc, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Race_Disc, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Race_Reports, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Race_Reports, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Gender_Disc, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Gender_Disc, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Gender_Reports, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Gender_Reports, project_data$Poverty_Proportion)
+```
+I will now run correlations on the different courses that are offered by districts.
+
+```{r}
+project_data %>%
+  ggplot(aes(Alg1, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Alg1, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Alg2, Poverty_Proportion)) + 
+  geom_point()
+```
+
+```{r}
+cor.test(project_data$Alg2, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Geo, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Geo, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(AdvMath, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$AdvMath, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Calc, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Calc, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Bio, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Bio, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Chem, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Chem, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Phys, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Phys, project_data$Poverty_Proportion)
+```
+I am going to look at the data for students that passed Algebra and the correlations.
+
+```{r}
+project_data %>%
+  ggplot(aes(Early_Pass, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Early_Pass, project_data$Poverty_Proportion)
+```
+```{r}
+project_data %>%
+  ggplot(aes(Late_Pass, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Late_Pass, project_data$Poverty_Proportion)
+```
+Look at demographics and how they relate to poverty.
+
+```{r}
+project_data %>%
+  ggplot(aes(Non_White_Students, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Non_White_Students, project_data$Poverty_Proportion)
+```
+
+
+
+Look at how grad rate and poverty relate and the correlation of it.
+
+```{r}
+project_data %>%
+  ggplot(aes(Grad_Rate, Poverty_Proportion)) + 
+  geom_point()
+```
+```{r}
+cor.test(project_data$Grad_Rate, project_data$Poverty_Proportion)
+```
+
