@@ -1,7 +1,7 @@
 ---
 title: "United States Districts Correlations"
 output:
-  html_document:
+  github_document
     df_print: paged
 ---
 In this markdown I will look at each of the features and run correlations on them to see how they relate with poverty proportion. I will also graph out each one of them to get a visual on the relationship.
